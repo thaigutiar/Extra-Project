@@ -55,3 +55,5 @@ return view('quiz3');
 });
 
 Route::get('/profile/create', 'ProfileController@create');
+
+Route::get('/profile/{id}', 'ProfileController@show');
