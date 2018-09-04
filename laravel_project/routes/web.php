@@ -53,3 +53,5 @@ return view('combine', $data);
 Route::get('/quiz3', function () {	
 return view('quiz3');
 });
+
+Route::get('/profile/create', 'ProfileController@create');
