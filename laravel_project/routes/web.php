@@ -61,3 +61,5 @@ Route::get('/profile/{id}', 'ProfileController@show');
 Route::get('/profile', 'ProfileController@index');
 
 Route::get('/employee', 'EmployeeController@index');
+
+Route::get('/employee/{id}', 'EmployeeController@show');

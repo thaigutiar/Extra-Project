@@ -52,7 +52,11 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $table_employee = EmployeeModel::select_by_id($id);
+    $data = [
+    "table_employee" => $table_employee
+    ];
+    return view('employee/show',$data);
     }
 
     /**

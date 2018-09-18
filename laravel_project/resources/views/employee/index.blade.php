@@ -21,10 +21,13 @@
 		<td>{{ $row->address }}</td>
 		<td>{{ $row->salary }}</td>
 		<td>{{ $row->position_id }}</td>
+		<td>{{ $row->position_name }}</td>
 		
 		<td>
 			<a href="{{ url('/') }}/employee/{{ $row->employee_id }}">View</a>
 			<a href="{{ url('/') }}/employee/{{ $row->employee_id }}/edit">Edit</a>
+			<a href="{{ url('/') }}/employee/{{ $row->employee_id }}/Delete">Delete</a>
+
 		</td>
 	</tr>
 	@endforeach
