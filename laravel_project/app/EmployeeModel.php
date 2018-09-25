@@ -20,4 +20,12 @@ WHERE employee_id = {$id}";
 return DB::select($sql , []);
 
 }
+
+public static function insert($name, $age, $address, $salary, $position_id){
+	
+$sql = "INSERT INTO tb_employee (name,age,address,salary, position_id)
+VALUES ( '{$name}', {$age}, '{$address}', {$salary}, {$position_id})";
+DB::insert($sql, []); //NO NEED TO RETURN
+}
+
 }

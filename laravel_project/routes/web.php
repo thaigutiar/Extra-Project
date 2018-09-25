@@ -62,4 +62,14 @@ Route::get('/profile', 'ProfileController@index');
 
 Route::get('/employee', 'EmployeeController@index');
 
+Route::get('/employee/create', 'EmployeeController@create');
+
+Route::post('/employee', 'EmployeeController@store');
+
 Route::get('/employee/{id}', 'EmployeeController@show');
+
+Route::post('/position', 'PositionController@index');
+
+
+
+

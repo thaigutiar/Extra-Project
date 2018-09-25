@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\PositionModel;
 use Illuminate\Http\Request;
-use App\EmployeeModel;
 
-class EmployeeController extends Controller
+class PositionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $table_employee = EmployeeModel::select_all();
-    $data = [
-    "table_employee" => $table_employee
-    ];
-    return view('employee/index',$data);
-
-
+        $table_position - PositionModel ::select_all();
+        $data = ["table_position" => $table_position];
+        return view('position/index',$data);
     }
 
     /**
@@ -30,7 +26,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee/create');
+        //
     }
 
     /**
@@ -41,38 +37,29 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->input('name');
-    $age = $request->input('age');
-    $address = $request->input('address');
-    $salary = $request->input('salary');
-    $position_id = $request->input('position_id');  
-
-    EmployeeModel::insert($name, $age, $address, $salary, $position_id);
-    return redirect('/employee');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\PositionModel  $positionModel
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(PositionModel $positionModel)
     {
-        $table_employee = EmployeeModel::select_by_id($id);
-    $data = [
-    "table_employee" => $table_employee
-    ];
-    return view('employee/show',$data);
+        $sql="SELECT * FROM table_position"
+        WHERE position select_by_id($id)
+        return DB::select($sat,[]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\PositionModel  $positionModel
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PositionModel $positionModel)
     {
         //
     }
@@ -81,10 +68,10 @@ class EmployeeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\PositionModel  $positionModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, PositionModel $positionModel)
     {
         //
     }
@@ -92,12 +79,11 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\PositionModel  $positionModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(PositionModel $positionModel)
     {
         //
     }
-
 }
