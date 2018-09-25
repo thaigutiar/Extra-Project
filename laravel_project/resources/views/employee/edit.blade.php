@@ -26,6 +26,17 @@
     	<div>
 			<a href="{{ url('/') }}/employee">back</a>
 			<button type="submit">Update</button>
+
+<select name="position_id">
+@foreach($table_position as $row_position)
+<option value="{{ $row_position->position_id }}"
+                {{ $row_position->position_id === $row->position_id ? "selected" : "" }} >
+            {{ $row_position->position_name }}
+        </option>
+            @endforeach
+</select>
+
+            
 		</div>
 	</form>
 @empty

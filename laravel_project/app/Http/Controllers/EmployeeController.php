@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\EmployeeModel;
+use App\PositionModel;
 
 class EmployeeController extends Controller
 {
@@ -30,8 +31,13 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee/create');
+        $table_position = PositionModel::select_all();
+     $data = [
+        "table_position" => $table_position
+     ];
+return view('employee/create',$data);
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -74,12 +80,13 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        $table_employee = EmployeeModel::select_by_id($id);
+    $table_employee = EmployeeModel::select_by_id($id);
+    $table_position = PositionModel::select_all();
     $data = [
-    'table_employee' => $table_employee
+    'table_employee' => $table_employee ,
+    'table_position' => $table_position
     ];
     return view('employee/edit',$data);
-
     }
 
     /**
