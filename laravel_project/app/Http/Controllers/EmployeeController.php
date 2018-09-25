@@ -109,7 +109,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        EmployeeModel::delete_by_id($id);
+    return redirect('/employee');
+
     }
 
 }
