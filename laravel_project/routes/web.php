@@ -74,5 +74,5 @@ Route::get('/employee/{id}/edit', 'EmployeeController@edit');
 
 Route::put('/employee/{id}', 'EmployeeController@update');
 
-
+Route::delete('/employee/{id}', 'EmployeeController@destroy');
 
