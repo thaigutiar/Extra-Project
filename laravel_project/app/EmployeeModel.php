@@ -28,4 +28,16 @@ VALUES ( '{$name}', {$age}, '{$address}', {$salary}, {$position_id})";
 DB::insert($sql, []); //NO NEED TO RETURN
 }
 
+public static function update_by_id($name, $age, $address, $salary, $position_id, $id){
+$sql = "UPDATE tb_employee SET
+name = '{$name}',
+age = {$age},
+address =  '{$address}',
+salary =  {$salary},
+position_id =  {$position_id}
+WHERE employee_id = {$id}";
+DB::update($sql, []);
+}
+
+
 }

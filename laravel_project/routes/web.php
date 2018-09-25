@@ -70,6 +70,9 @@ Route::get('/employee/{id}', 'EmployeeController@show');
 
 Route::post('/position', 'PositionController@index');
 
+Route::get('/employee/{id}/edit', 'EmployeeController@edit');
+
+Route::put('/employee/{id}', 'EmployeeController@update');
 
 
 

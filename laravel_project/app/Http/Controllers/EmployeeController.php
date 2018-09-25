@@ -74,7 +74,12 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $table_employee = EmployeeModel::select_by_id($id);
+    $data = [
+    'table_employee' => $table_employee
+    ];
+    return view('employee/edit',$data);
+
     }
 
     /**
@@ -86,7 +91,14 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $name = $request->input('name');
+    $age = $request->input('age');
+    $address = $request->input('address');
+    $salary = $request->input('salary');
+    $position_id = $request->input('position_id');
+    
+    EmployeeModel::update_by_id($name, $age, $address, $salary, $position_id, $id);
+    return redirect('/employee');
     }
 
     /**
