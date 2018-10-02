@@ -29,7 +29,11 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $table_position = StudentModel::select_all();
+     $data = [
+        "table_student" => $table_student
+     ];
+    return view('student/create',$data);
     }
 
     /**
@@ -51,7 +55,11 @@ class StudentController extends Controller
      */
     public function show(Studentmodel $studentmodel)
     {
-        //
+           $table_student = StudentModel::select_by_id($id);
+    $data = [
+    "table_student" => $table_student
+    ];
+    return view('student/show',$data);
     }
 
     /**
@@ -62,7 +70,12 @@ class StudentController extends Controller
      */
     public function edit(Studentmodel $studentmodel)
     {
-        //
+            $table_student = StudentModel::select_by_id($id);
+    $data = [
+    'table_student' => $table_student ,
+    ];
+    return view('student/edit',$data);
+    }
     }
 
     /**
@@ -74,7 +87,14 @@ class StudentController extends Controller
      */
     public function update(Request $request, Studentmodel $studentmodel)
     {
-        //
+         $name = $request->input('name');
+    $age = $request->input('age');
+    $address = $request->input('address');
+    $salary = $request->input('salary');
+    $student_id = $request->input('student_id');
+    
+    EmployeeModel::update_by_id($name, $age, $address, $salary, $position_id, $id);
+    return redirect('/student');
     }
 
     /**

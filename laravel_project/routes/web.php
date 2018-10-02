@@ -78,8 +78,18 @@ Route::delete('/employee/{id}', 'EmployeeController@destroy');
 
 
 //งาน Extrx_g
+
 Route::get('/student/create', 'StudentController@create');
 
 Route::get('/student/{id}', 'StudentController@show');
 
 Route::get('/student/', 'StudentController@index');
+
+
+//for edit or update or delete
+
+Route::get('/Student/{id}/edit', 'StudentController@edit');
+
+Route::put('/Student/{id}', 'StudentController@update');
+
+Route::delete('/Student/{id}', 'StudentController@destroy');
