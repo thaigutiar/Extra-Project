@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Studentmodel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -14,7 +15,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $table_employee = StudentModel::select_all();
+    $data = [
+    "table_student" => $table_student
+    ];
+    return view('student/index',$data);
     }
 
     /**

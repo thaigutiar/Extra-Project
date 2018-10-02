@@ -16,12 +16,10 @@ class EmployeeController extends Controller
     public function index()
     {
         $table_employee = EmployeeModel::select_all();
-    $data = [
-    "table_employee" => $table_employee
-    ];
-    return view('employee/index',$data);
-
-
+        $data = [
+            "table_employee" => $table_employee
+        ];
+        return view('employee/index',$data);
     }
 
     /**
